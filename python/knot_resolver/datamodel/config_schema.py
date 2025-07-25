@@ -9,7 +9,6 @@ from knot_resolver.datamodel.defer_schema import DeferSchema
 from knot_resolver.datamodel.dns64_schema import Dns64Schema
 from knot_resolver.datamodel.dnssec_schema import DnssecSchema
 from knot_resolver.datamodel.forward_schema import FallbackSchema, ForwardSchema
-from knot_resolver.datamodel.globals import Context, get_global_validation_context, set_global_validation_context
 from knot_resolver.datamodel.local_data_schema import LocalDataSchema, RPZSchema, RuleSchema
 from knot_resolver.datamodel.logging_schema import LoggingSchema
 from knot_resolver.datamodel.lua_schema import LuaSchema
@@ -25,6 +24,11 @@ from knot_resolver.datamodel.webmgmt_schema import WebmgmtSchema
 from knot_resolver.utils.modeling import ConfigSchema
 from knot_resolver.utils.modeling.base_schema import lazy_default
 from knot_resolver.utils.modeling.exceptions import AggregateDataValidationError, DataValidationError
+from knot_resolver.utils.modeling.validation_context import (
+    Context,
+    get_global_validation_context,
+    set_global_validation_context,
+)
 
 WORKERS_MAX = 256
 
