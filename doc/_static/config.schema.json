@@ -485,7 +485,8 @@
                                     "xdp",
                                     "dot",
                                     "doh-legacy",
-                                    "doh2"
+                                    "doh2",
+                                    "doq"
                                 ],
                                 "description": "Specifies DNS query transport protocol.",
                                 "default": "dns"
