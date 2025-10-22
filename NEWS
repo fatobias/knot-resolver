@@ -5,6 +5,10 @@ Bugfixes
 --------
 - reload did not apply changes to /fallback (!1763)
 
+Improvements
+------------
+- support libdnssec merged into libknot, as planned for knot >= 3.6 (!1769)
+
 
 Knot Resolver 6.0.17 (2025-12-02)
 =================================
