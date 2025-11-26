@@ -359,6 +359,7 @@ s_openssl = openssl.found() ? 'present': 'missing'
 s_capng = capng.found() ? 'enabled': 'disabled'
 s_malloc = malloc.found() ? 'jemalloc' : 'libc default'
 s_doh2 = nghttp2.found() ? 'enabled': 'disabled'
+s_doq = libngtcp2.found() ? 'enabled': 'disabled'
 message('''
 
 ======================= SUMMARY =======================
@@ -397,6 +398,7 @@ message('''
     capng:              @0@'''.format(s_capng) + '''
     malloc:             @0@'''.format(s_malloc) + '''
     doh2:               @0@'''.format(s_doh2) + '''
+    doq:                @0@'''.format(s_doq) + '''
 
 =======================================================
 
