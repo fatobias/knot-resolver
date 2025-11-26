@@ -362,3 +362,64 @@ if luacheck.found()
   )
 endif
 
+# # Summary message
+# # NOTE: ternary operator in format() not supported
+# # https://github.com/mesonbuild/meson/issues/2404
+# s_managed_ta = managed_ta ? 'enabled' : 'disabled'
+# s_install_root_keys = install_root_keys ? 'enabled' : 'disabled'
+# s_build_utils = build_utils ? 'enabled' : 'disabled'
+# s_build_dnstap = build_dnstap ? 'enabled' : 'disabled'
+# s_build_unit_tests = build_unit_tests ? 'enabled' : 'disabled'
+# s_build_config_tests = build_config_tests ? 'enabled' : 'disabled'
+# s_build_extra_tests = build_extra_tests ? 'enabled' : 'disabled'
+# s_install_kresd_conf = install_kresd_conf ? 'enabled' : 'disabled'
+# s_sendmmsg = sendmmsg ? 'enabled': 'disabled'
+# s_xdp = xdp ? 'enabled': 'disabled'
+# s_openssl = openssl.found() ? 'present': 'missing'
+# s_capng = capng.found() ? 'enabled': 'disabled'
+# s_malloc = malloc.found() ? 'jemalloc' : 'libc default'
+# s_doh2 = nghttp2.found() ? 'enabled': 'disabled'
+# s_doq = libngtcp2.found() ? 'enabled': 'disabled'
+# message('''
+#
+# ======================= SUMMARY =======================
+#
+#   paths
+#     prefix:             @0@'''.format(prefix) + '''
+#     lib_dir:            @0@'''.format(lib_dir) + '''
+#     sbin_dir:           @0@'''.format(sbin_dir) + '''
+#     etc_dir:            @0@'''.format(etc_dir) + '''
+#     root.hints:         @0@'''.format(root_hints) + '''
+#
+#   trust_anchors
+#     keyfile_default:    @0@'''.format(keyfile_default) + '''
+#     managed_ta:         @0@'''.format(s_managed_ta) + '''
+#     install_root_keys:  @0@'''.format(s_install_root_keys) + '''
+#
+#   systemd:
+#     files:              @0@'''.format(systemd_files) + '''
+#     work_dir:           @0@'''.format(systemd_work_dir) + '''
+#     cache_dir:          @0@'''.format(systemd_cache_dir) + '''
+#
+#   optional components
+#     utils:              @0@'''.format(s_build_utils) + '''
+#     dnstap:             @0@'''.format(s_build_dnstap) + '''
+#     unit_tests:         @0@'''.format(s_build_unit_tests) + '''
+#     config_tests:       @0@'''.format(s_build_config_tests) + '''
+#     extra_tests:        @0@'''.format(s_build_extra_tests) + '''
+#
+#   additional
+#     user:               @0@'''.format(user) + '''
+#     group:              @0@'''.format(group) + '''
+#     install_kresd_conf: @0@'''.format(s_install_kresd_conf) + '''
+#     sendmmsg:           @0@'''.format(s_sendmmsg) + '''
+#     XDP (in libknot):   @0@'''.format(s_xdp) + '''
+#     openssl debug:      @0@'''.format(s_openssl) + '''
+#     capng:              @0@'''.format(s_capng) + '''
+#     malloc:             @0@'''.format(s_malloc) + '''
+#     doh2:               @0@'''.format(s_doh2) + '''
+#     doq:                @0@'''.format(s_doq) + '''
+#
+# =======================================================
+#
+# ''')
