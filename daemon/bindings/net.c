@@ -146,7 +146,7 @@ static bool net_listen_addrs(lua_State *L, int port, endpoint_flags_t flags, int
 			flags.sock_type = SOCK_DGRAM;
 			ret = network_listen(str, port, nic_queue, flags);
 		}
-		if (!flags.kind && !flags.xdp && ret == 0) { /* common for TCP, DoT and DoH (v2) */
+		if (!flags.kind && !flags.xdp && !flags.quic && ret == 0) { /* common for TCP, DoT and DoH (v2) */
 			flags.sock_type = SOCK_STREAM;
 			ret = network_listen(str, port, nic_queue, flags);
 		}
