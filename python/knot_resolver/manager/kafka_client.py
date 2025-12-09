@@ -15,6 +15,7 @@ from knot_resolver.utils.modeling import try_to_parse
 from knot_resolver.utils.modeling.exceptions import DataParsingError, DataValidationError
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 
 def kafka_config(config: KresConfig) -> List[Any]:
@@ -330,11 +331,12 @@ if KAFKA_LIB:
                     # ready to consume messages
                     try:
                         messages: Dict[TopicPartition, List[ConsumerRecord]] = self._consumer.poll(timeout_ms=100)
+                        logger.debug(f"Consumed {len(messages)} messages")
                         if messages:
                             # ready to process messages
                             process_messages(messages, self._config)
                         else:
-                            await asyncio.sleep(10)
+                            await asyncio.sleep(15)
                     except KafkaError as e:
                         logger.error(f"{error_msg_prefix} Kafka error:\n{e}")
                         self._consumer_connect()
